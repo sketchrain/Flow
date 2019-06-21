@@ -1,17 +1,17 @@
 ![Flow Header](https://i.ibb.co/2SLXTZX/flow-banner.png "Flow Header Banner")
 
-# Flow – základní přehled 
-**Flow je experimentální, minimalistický, reaktivní framework** postavený na [RxJS](https://rxjs-dev.firebaseapp.com/)(port RX pro Java Script), který má za cíl prezentovat možnosti RxJS a umožnit přehledné řízení akcí v rámci klientských aplikací, možný použít v kombinaci např. s [Angular](https://angular.io), [React](https://reactjs.org) atd. 
+# Flow - overview
 
-Základní myšlenka je definování charakteristických akcí aplikace a jejich propojení do interakcí v rámci akčního modulu. Ke konstrukce interakcí je možné využít přímo či nepřímo klasické operátory RxJs.
+**Flow is experimental, minimalistic, reactive framework** based on [RxJS](https://rxjs-dev.firebaseapp.com/) (RX port for JavaScript). Main goal of this framework is to simplify actions and data management for client side of web-applications. Flow can be used in combination with different frontend technologies, such as [Angular](https://angular.io), [React](https://reactjs.org) etc.
 
-K jednotlivým akcím mohou být přiřazeny konkrétní datové operace, logika řízení akcí a napojeno backendové API. 
+Key idea is to define characteristic actions for application and their interactions in scope of one specific action module.
 
-## Ukázková web-aplikace (NGTimer)
+## Example web-app (NGTimer) 
 
 <img align="left" width="350" height="333" src="https://i.ibb.co/qkyHC59/ngt-vid2.gif"/>
 
-NGTimer je jednoduchá ukázková web-aplikace, která by měla demonstrovat použití Flow v praxi. Je implementován **frontend** i **backend**. **NGTimer** je postavený na [MEAN stacku](http://mean.io/) (MongoDB, Expres.js, Angular, Node.js). Jako UI library je používán port [Semantic UI](https://edcarroll.github.io/ng2-semantic-ui/#/getting-started) pro Angular.
+NGTimer is web application, which should demonstrate usage of Flow in practice. NGTimer has implemented **frontend** and **backend**. **NGTimer** is built on [MEAN stack](http://mean.io/) (MongoDB, Expres.js, Angular, Node.js). For UI is used library [Semantic UI](https://edcarroll.github.io/ng2-semantic-ui/#/getting-started) for Angular.
+
 <h3>
   <a href="https://github.com/sketchrain/ngTimer">NGTimer - repository</a>
   <span> | </span>
@@ -20,28 +20,29 @@ NGTimer je jednoduchá ukázková web-aplikace, která by měla demonstrovat pou
 
 <br clear="left">
 
-## Funkcionality, Koncept
-### Základní prvky (architektura)
-**Flow** obsahuje hlavní **akční modul**, od kterého je odvozen **selector** a **eventModule**. Jednotlivé moduly jsou navzájem propojeny a po provedení vlastních **interakcí** předávají výstupní akce napojenému modulu. Komunikace mezi akčními moduly probíhá skrze **signál**, který “protéká” modulem.
+## Key concepts
+### Core elements
+
+**Flow** contains main action module, from which it is derived **Selector** and **Event Module**. Individual modules are linked together and after all **interactions** are completed in one module, output actions are pushed to other (connected) module. Communication between each action modules is handled by **signal**, which flows through modules.
 
 <p align="center">
   <img src="https://i.ibb.co/Db4hfwq/flow-schema.png" />
 </p>
 
-## Funkcionality
-* **Definice a řízení charakteristických akcí pro aplikaci, (logování akcí)**
-<p><b>Akce</b> jsou vzájemně propojeny do interakcí. Ke každé akci můžou být přiřazeny jednotlivé operace (datové operace atd.).</p>
+## Features
+* **) Definition and management of actions for web-apps (log action information)**
+<p><b>Actions</b> are interconnected and to every action can be attached concrete data operations, control logic and backend API.</p>
 
-* **Definice průběhových akcí a řízení jejich stavů (start, stop, resume)**
-<p>Akce jsou rozlišovány na <b>základní</b> a <b>stavové</b> (průběhové), díky tomu je možné řídit průběh akcí na základě aktuálního stavu průběhových akcí. </p>
+* **Manage states for actions (start, stop, resume)**
+// <p>There are two main types of actions, <b>basic</b> and <b>state actions</b>. This makes it easier to setup relationships between actions, by checking their states.</p> 
 
-* **Definice sekundárních vztahů mezi akcemi – vedlejší akce**
-<p>Ke každé akci je možné ostatní akce napojit jako <b>vedlejší akce</b> (side-effects). Takto může být přehledně a předvídatelně řízen průběh akcí.</p>
+* **Definition of secondary relationships between actions**
+<p>Each action can by connected to any other action as <b>side-effect<b>. Each action can have several side-effects.<p>
 
-* **Napojení backendového API k definovaným akcím**
-* **Organizování, napojení UI-event na akce **
-* **Definice selectorů pro konkrétní datové elemtny nebo objekty datového modelu**
-* **Napojení posluchačů daných selectorů pro update visuálu**
+* **Connection of backend API to actions**
+* **Organizing, Connection of UI events to actions**
+* **Defining selectors for concrete data objects/elements**
+* **Connecting listeners to update visual**
 
-## Kompletní API reference
+## Complete API overview
 ### in progress
